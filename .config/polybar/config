@@ -1,0 +1,251 @@
+# hooman's polybar config
+
+
+[colors]
+background = #2e3440
+foreground = #eceff4
+base00 = #2E3440
+base01 = #3B4252
+base02 = #434C5E
+base03 = #4C566A
+base04 = #D8DEE9
+base05 = #E5E9F0
+base06 = #ECEFF4
+base07 = #8FBCBB
+base08 = #B48EAD
+base09 = #D08770
+base0A = #EBCB8B
+base0B = #A3BE8C
+base0C = #88C0D0
+base0D = #B48EAD
+base0E = #B48EAD
+base0F = #5E81AC
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+undy = #08726d
+
+[bar/main]
+monitor = ${env:MONITOR:eDP-1-1}
+width = 100%
+height = 25
+fixed-center = true
+radius= 0.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 3
+line-color = #f00
+
+border-size = 3
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+
+font-0 = notoserif nerd font:pixelsize=12;1
+font-1 = droidsansmono nerd font:pixelsize=12;1
+
+modules-left = i3 xwindow
+modules-right = network memory cpu wlan eth sound battery date
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+module-margin = 2
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:64:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+#blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+[module/i3]
+type = internal/i3
+format = <label-state> 
+;<label-mode>
+;index-sort = true
+;wrapping-scroll = false
+enable-scroll = true
+enable-click = true
+format-padding = 1
+; Only show workspaces on the same output as the bar
+pin-workspaces = false
+;label-mode = %mode%
+;label-mode-padding = 2
+;label-mode-foreground = #000
+;label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.base03}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.secondary}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+;; label-separator = |
+#fuzzy-match = true
+ws-icon-0 = 1;ﭮ
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;喇
+ws-icon-4 = 5;
+ws-icon-default = 
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+label =  %percentage:2%%
+format-underline=${colors.undy}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+label =  %gb_used%
+format-underline=${colors.undy}
+
+[module/wlan]
+type = internal/network
+interface = wlo1
+interval = 3.0
+
+format-connected = <label-connected> <ramp-signal>
+label-connected = 直 %essid%
+
+format-disconnected = 睊
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground}
+
+[module/eth]
+type = internal/network
+interface = enp0s0
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground}
+label-connected = %local_ip%
+
+format-disconnected = =!
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground}
+
+label = %date% %time%
+
+[module/sound]
+type = internal/alsa
+format-volume = <ramp-volume>
+format-muted-prefix = " "
+label-muted = 
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-6 = 
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 98
+
+format-charging = <animation-charging>
+format-charging-underline=#ffcc66
+format-discharging = <ramp-capacity>
+format-discharging-underline=${colors.undy}
+
+format-full-prefix = ""
+format-full-prefix-foreground = ${colors.foreground}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
+
+
