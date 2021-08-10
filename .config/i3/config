@@ -68,7 +68,8 @@ bindsym $mod+p exec pavucontrol --class yeet
 bindsym $mod+Return exec xterm
 bindsym $mod+m exec gnome-system-monitor --class yeet
 bindsym $mod+n exec nautilus --class yeet
-bindsym $mod+Ctrl+s exec code --class yeet
+bindsym $mod+Ctrl+a exec audacious
+bindsym $mod+Ctrl+s exec kdevelop
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -210,8 +211,8 @@ for_window [class="^.*"] border pixel 1
 #border_radius 3
 
 # gaps
-gaps outer 1
-gaps inner 2
+gaps outer 2
+gaps inner 4
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -223,4 +224,5 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id ibus-daemon -drx
+#exec_always --no-startup-id fetchcord
 #exec_always --no-startup-id nm-applet

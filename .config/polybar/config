@@ -36,8 +36,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 3
-border-color = #00000000
+;border-size = 1
+;border-color = #00000000
 
 padding-left = 0
 padding-right = 2
@@ -52,7 +52,7 @@ modules-left = i3 xwindow
 modules-right = network memory cpu wlan eth sound battery date
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 ;tray-background = #0063ff
 module-margin = 2
 
