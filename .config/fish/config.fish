@@ -12,4 +12,4 @@ function __fish_winch_handler --on-signal winch
 end
 
 export EDITOR="nvim"
-
+export RANGER_LOAD_DEFAULT_RC="FALSE"
