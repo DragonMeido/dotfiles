@@ -45,8 +45,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 
-font-0 = notoserif nerd font:pixelsize=12;1
-font-1 = droidsansmono nerd font:pixelsize=12;1
+font-0 = droidsansmono nerd font:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-right = network memory cpu wlan eth sound battery date
@@ -85,10 +84,12 @@ label-layout = %layout%
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
+
+
+
 [module/i3]
 type = internal/i3
-format = <label-state> 
-;<label-mode>
+format = <label-state> <label-mode>
 ;index-sort = true
 ;wrapping-scroll = false
 enable-scroll = true
@@ -96,10 +97,11 @@ enable-click = true
 format-padding = 1
 ; Only show workspaces on the same output as the bar
 pin-workspaces = false
-;label-mode = %mode%
-;label-mode-padding = 2
-;label-mode-foreground = #000
-;label-mode-background = ${colors.primary}
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
@@ -155,11 +157,11 @@ label-connected = 直 %essid%
 
 format-disconnected = 睊
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 =     
+ramp-signal-1 =     
+ramp-signal-2 =     
+ramp-signal-3 =     
+ramp-signal-4 =      
 ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
@@ -209,10 +211,13 @@ type = internal/battery
 battery = BAT1
 adapter = ACAD
 full-at = 98
+time-format = %H:%M
 
-format-charging = <animation-charging>
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%% %time% %consumption%W
 format-charging-underline=#ffcc66
-format-discharging = <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% %time% %consumption%W
 format-discharging-underline=${colors.undy}
 
 format-full-prefix = ""
