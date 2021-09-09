@@ -69,7 +69,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+m exec gnome-system-monitor --class yeet
 bindsym $mod+n exec nautilus --class yeet
 bindsym $mod+Ctrl+a exec audacious
-bindsym $mod+Ctrl+s exec kdevelop
+#bindsym $mod+Ctrl+s exec 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -82,7 +82,6 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # flameshot config
-bindsym --release Print exec flameshot full
 bindsym --release Shift+Print exec flameshot gui
 #bindsym --release Shift+f+Print exec flameshot scn
 # change focus
@@ -223,5 +222,4 @@ exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id ibus-daemon -drx
-#exec_always --no-startup-id fetchcord
 #exec_always --no-startup-id nm-applet
