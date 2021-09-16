@@ -21,6 +21,7 @@ Plug 'lyuts/vim-rtags'
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme gruvbox
@@ -28,7 +29,7 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-let mapleader=""
+let mapleader=" "
 let g:netrw_browse_split=2
 let g:newrw_banner=0
 let g:newrw_winsize=25
@@ -39,10 +40,12 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>ev :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>v :wincmd v<CR>
 nnoremap <leader>ps :Rg<SPACE>
 nnoremap <silent><leader>+ :vertical resize +5<CR>
 nnoremap <silent><leader>- :vertical resize -5<CR>
 nnoremap <silent><leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent><leader>gf :YcmCompleter FixIt<CR>
+
 
