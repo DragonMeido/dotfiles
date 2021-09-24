@@ -2,28 +2,13 @@
 
 
 [colors]
-background = #2e3440
-foreground = #eceff4
-base00 = #2E3440
-base01 = #3B4252
-base02 = #434C5E
-base03 = #4C566A
-base04 = #D8DEE9
-base05 = #E5E9F0
-base06 = #ECEFF4
-base07 = #8FBCBB
-base08 = #B48EAD
-base09 = #D08770
-base0A = #EBCB8B
-base0B = #A3BE8C
-base0C = #88C0D0
-base0D = #B48EAD
-base0E = #B48EAD
-base0F = #5E81AC
+background = #181512
+foreground = #bea492
+active = #332d29
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
-undy = #08726d
+underline = #817267
 
 [bar/main]
 monitor = ${env:MONITOR:eDP-1-1}
@@ -48,11 +33,11 @@ module-margin-right = 2
 font-0 = droidsansmono nerd font:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-right = network memory cpu wlan eth sound battery date
+modules-right = network wlan eth memory cpu battery date sound
 
 tray-position = right
 tray-padding = 1
-;tray-background = #0063ff
+;tray-background = <color here>
 module-margin = 2
 
 ;wm-restack = bspwm
@@ -70,13 +55,13 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:64:...%
+label = %title:0:48:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
 #blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground}
 
 label-layout = %layout%
@@ -99,13 +84,13 @@ format-padding = 1
 pin-workspaces = false
 
 label-mode = %mode%
-label-mode-padding = 2
+;label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.base03}
+label-focused-background = ${colors.active}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -131,13 +116,14 @@ ws-icon-2 = 3;
 ws-icon-3 = 4;喇
 ws-icon-4 = 5;
 ws-icon-default = 
+
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 label =  %percentage:2%%
-format-underline=${colors.undy}
+format-underline=${colors.underline}
 
 [module/memory]
 type = internal/memory
@@ -145,7 +131,7 @@ interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 label =  %gb_used%
-format-underline=${colors.undy}
+format-underline=${colors.underline}
 
 [module/wlan]
 type = internal/network
@@ -175,7 +161,7 @@ label-connected = %local_ip%
 
 format-disconnected = =!
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = #556d70
 
 [module/date]
 type = internal/date
@@ -215,10 +201,10 @@ time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
 label-charging = %percentage%% %time% %consumption%W
-format-charging-underline=#ffcc66
+format-charging-underline= #746c48
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%% %time% %consumption%W
-format-discharging-underline=${colors.undy}
+format-discharging-underline= #4b5c5e
 
 format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground}
@@ -239,6 +225,7 @@ animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
