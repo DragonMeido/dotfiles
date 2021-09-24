@@ -22,35 +22,35 @@ xterm*faceSize6: 24
 
 ! bg and fg colour
 !TomorrowNightEighties
-#define t_background        #2d2d2d
-#define t_current_line      #393939
-#define t_selection         #515151
-#define t_foreground        #cccccc
+#define t_background        #181512
+#define t_current_line      #9a875f
+#define t_selection         #504339
+#define t_foreground        #bea492
 #define t_comment           #999999
-#define t_red               #f2777a
-#define t_orange            #f99157
-#define t_yellow            #ffcc66
-#define t_green             #99cc99
-#define t_aqua              #66cccc
-#define t_blue              #6699cc
-#define t_purple            #cc99cc
+#define t_red               #8c644c
+#define t_orange            #908a66
+#define t_yellow            #9c956e
+#define t_green             #746c48
+#define t_aqua              #4b5c5e
+#define t_blue              #646a6d
+#define t_purple            #605655
 
 
 *.foreground:   t_foreground
 *.background:   t_background
-*.cursorColor:  #aeafad
+*.cursorColor:  #bea492
 
 ! Black / Grey
-*.color0:       #000000
-*.color8:       #666666
+*.color0:       #332d29
+*.color8:       #817267
 
 ! Red / Bright Red
 *.color1:       t_red
-*.color9:       #FF3334
+*.color9:       #9f7155
 
 ! Green + Bright Green
 *.color2:       t_green
-*.color10:      #9ec400
+*.color10:      #857b52
 
 ! Yellow (Orange) + Bright Yellow (Yellow)
 *.color3:       t_orange
@@ -58,15 +58,15 @@ xterm*faceSize6: 24
 
 ! Blue + Bright Blue
 *.color4:       t_blue
-*.color12:      t_blue
+*.color12:      #71777a
 
 ! Magenta (Purple) + Bright Magenta
 *.color5:       t_purple
-*.color13:      #b777e0
+*.color13:      #656565
 
 ! Cyan (Aqua) + Bright Cyan
 *.color6:       t_aqua
-*.color14:      #54ced6
+*.color14:      #556d70
 
 ! Light Grey (Selection) + White (Current Line)
 *.color7:       t_selection
