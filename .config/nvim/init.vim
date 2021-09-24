@@ -22,6 +22,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chrisbra/Colorizer'
 call plug#end()
 
 colorscheme gruvbox
