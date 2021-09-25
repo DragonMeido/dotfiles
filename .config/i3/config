@@ -7,6 +7,25 @@
 
 set $mod Mod4
 
+# .Xresources
+
+# Use custom colors for black
+set $text #bea492 
+set $active #332d29
+set $inactive #181512
+set $indicator #55bcce
+set $cbfocused #76715e
+set $cbunfocused #48483e
+set $transparent #00000000
+
+# Window color scheme
+#                       BORDER          BACKGROUND      TEXT        INDICATOR       CHILD_BORDER
+client.focused          $active         $active         $text       $indicator      $cbfocused
+client.unfocused        $inactive       $inactive       $text       $transparent    $cbunfocused
+client.focused_inactive $active         $active         $text       $transparent    $cbunfocused
+client.urgent           #d4c96e        #daba8a         $inactive    $transparent    $transparent
+client.background       $black
+
 font pango:monospace 10
 #font pango:DejaVu Sans Mono 8
 
@@ -16,6 +35,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# mpc keybindings
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
 
 #brightnessctl keybindings to control brightness from user space
 #### Screen Brightness ####
@@ -171,12 +195,12 @@ for_window [class="^.*"] border pixel 2
 #border_radius 3
 
 # gaps
-gaps outer 2
-gaps inner 4
+gaps outer 0
+gaps inner 2
 
 # programs to launch
 exec_always --no-startup-id /home/sakuya/.config/polybar/launch.sh
-exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/Wallpapers/*
+exec_always --no-startup-id feh --bg-fill ~/bg.jpg*
 exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator

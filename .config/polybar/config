@@ -1,13 +1,12 @@
-# hooman's polybar config
+
 
 
 [colors]
-background = #181512
 foreground = #bea492
+background = #181512
 active = #332d29
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+primary = #daba8b
+secondary = #8fc029
 underline = #817267
 
 [bar/main]
@@ -21,18 +20,19 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-;border-size = 1
-;border-color = #00000000
+border-size = 2
+border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 
 font-0 = droidsansmono nerd font:pixelsize=10;1
 
 modules-left = i3 xwindow
+modules-center = mpd
 modules-right = network wlan eth memory cpu battery date sound
 
 tray-position = right
@@ -41,7 +41,7 @@ tray-padding = 1
 module-margin = 2
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 
 ;scroll-up = bspwm-desknext
@@ -53,6 +53,7 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+enable-ipc = true 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:48:...%
@@ -70,7 +71,28 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 
+[module/mpd]
+type = internal/mpd
+host = localhost
+port = 6600
+format-online = "<icon-prev>  <toggle>  <icon-next>  <label-song>"
+format-online-padding = 2
+label-song-padding = 1
+label-song = %artist%:%title%
 
+format-offline = <label-offline>
+label-offline =  offline
+format-offline-foreground = ${colors.foreground}
+format-offline-background = ${colors.background}
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 45
+label-song-ellipsis = true
 
 [module/i3]
 type = internal/i3
@@ -200,10 +222,10 @@ full-at = 98
 time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
-label-charging = %percentage%% %time% %consumption%W
+label-charging = %percentage%% %time%
 format-charging-underline= #746c48
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%% %time% %consumption%W
+label-discharging = %percentage%% %time%
 format-discharging-underline= #4b5c5e
 
 format-full-prefix = ""

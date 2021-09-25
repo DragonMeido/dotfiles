@@ -13,7 +13,6 @@ set smartcase
 set incsearch
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-utils/vim-man'
@@ -25,7 +24,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chrisbra/Colorizer'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme peachpuff
+
 if executable('rg')
     let g:rg_derive_root='true'
 endif

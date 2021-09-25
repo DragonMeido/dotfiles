@@ -21,56 +21,43 @@ xterm*faceSize5: 22
 xterm*faceSize6: 24
 
 ! bg and fg colour
-!TomorrowNightEighties
-#define t_background        #181512
-#define t_current_line      #9a875f
-#define t_selection         #504339
-#define t_foreground        #bea492
-#define t_comment           #999999
-#define t_red               #8c644c
-#define t_orange            #908a66
-#define t_yellow            #9c956e
-#define t_green             #746c48
-#define t_aqua              #4b5c5e
-#define t_blue              #646a6d
-#define t_purple            #605655
 
+*.foreground:   #bea492
+*.background:   #181512
+*.cursorColor:  #daba8b
 
-*.foreground:   t_foreground
-*.background:   t_background
-*.cursorColor:  #bea492
+! black
+*.color0:       #48483e
+*.color8:       #76715e
 
-! Black / Grey
-*.color0:       #332d29
-*.color8:       #817267
+! red
+*.color1:       #dc2566
+*.color9:       #fa2772
 
-! Red / Bright Red
-*.color1:       t_red
-*.color9:       #9f7155
+! green
+*.color2:       #8fc029
+*.color10:      #a7e22e
 
-! Green + Bright Green
-*.color2:       t_green
-*.color10:      #857b52
+! yellow
+*.color3:       #d4c96e
+*.color11:      #e7db75
 
-! Yellow (Orange) + Bright Yellow (Yellow)
-*.color3:       t_orange
-*.color11:      t_yellow
+! blue
+*.color4:       #55bcce
+*.color12:      #66d9ee
 
-! Blue + Bright Blue
-*.color4:       t_blue
-*.color12:      #71777a
+! magenta
+*.color5:       #9358fe
+*.color13:      #ae82ff
 
-! Magenta (Purple) + Bright Magenta
-*.color5:       t_purple
-*.color13:      #656565
+! cyan
+*.color6:       #56b7a5
+*.color14:      #66efd5
 
-! Cyan (Aqua) + Bright Cyan
-*.color6:       t_aqua
-*.color14:      #556d70
+! white
+*.color7:       #acada1
+*.color15:      #cfd0c2
 
-! Light Grey (Selection) + White (Current Line)
-*.color7:       t_selection
-*.color15:      t_current_line
 
 ! Scroll bar
 xterm*vt100.scrollBar: false
