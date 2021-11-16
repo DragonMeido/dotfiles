@@ -20,11 +20,12 @@ Plug 'lyuts/vim-rtags'
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chrisbra/Colorizer'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme peachpuff
+colorscheme gruvbox
 
 if executable('rg')
     let g:rg_derive_root='true'

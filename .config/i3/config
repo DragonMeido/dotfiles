@@ -5,7 +5,7 @@
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # .Xresources
 
@@ -64,7 +64,7 @@ bindsym $mod+p exec pavucontrol --class yeet
 bindsym $mod+Return exec xterm
 bindsym $mod+m exec gnome-system-monitor --class yeet
 bindsym $mod+n exec nautilus --class yeet
-bindsym $mod+Ctrl+a exec audacious
+bindsym $mod+Ctrl+a exec code
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -207,5 +207,5 @@ exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id ibus-daemon -drx
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
