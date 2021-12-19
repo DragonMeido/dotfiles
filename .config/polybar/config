@@ -32,7 +32,7 @@ font-0 = droidsansmono nerd font:pixelsize=10;1
 font-1 = Source Han Sans JP:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-center = mpd
+modules-center = mpd-scroll
 modules-right = network wlan eth memory cpu battery date sound
 
 tray-position = right
@@ -44,8 +44,6 @@ module-margin = 2
 wm-restack = i3
 
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -54,6 +52,7 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true 
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:48:...%
@@ -71,28 +70,12 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 
-[module/mpd]
-type = internal/mpd
-host = localhost
-port = 6600
-format-online = "<icon-prev>  <toggle>  <icon-next>  <label-song>"
-format-online-padding = 2
-label-song-padding = 1
-label-song = %artist%:%title%
+[module/mpd-scroll]
+type = custom/script
+exec = /home/sakuya/.config/polybar/scripts/mpdScroll.sh
+tail = true
 
-format-offline = <label-offline>
-label-offline =  offline
-format-offline-foreground = ${colors.foreground}
-format-offline-background = ${colors.background}
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 45
-label-song-ellipsis = true
+label-foreground = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
@@ -247,6 +230,13 @@ animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
+
+[module/deadd]
+type = custom/text
+content = "PH"
+content-margin = "4"
+content-underline = ${colors.primary}
+click-left = kill -s USR1 $(pidof deadd-notifiaction-center)
 
 [settings]
 screenchange-reload = true

@@ -6,7 +6,7 @@ killall -q polybar
 # polybar-msg cmd quit
 
 # Launch bar1 and bar2
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 polybar main;
 #polybar bar2;
 

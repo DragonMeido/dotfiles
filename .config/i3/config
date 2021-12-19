@@ -56,7 +56,7 @@ bindsym XF86KbdBrightnessUp exec --no-startup-id brightnessctl -d asus::kbd_back
 floating_modifier $mod
 
 # Lock screen
-bindsym $mod+Ctrl+l exec i3lock-fancy
+#bindsym $mod+Ctrl+l exec /usr/bin/slock
 # app launch bindings
 for_window [class="yeet"] floating enable
 #for_window [window_role=myon] floating enable

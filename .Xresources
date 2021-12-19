@@ -25,7 +25,6 @@ xterm*faceSize6: 24
 *.foreground:   #bea492
 *.background:   #181512
 *.cursorColor:  #daba8b
-
 ! black
 *.color0:       #48483e
 *.color8:       #76715e
@@ -57,6 +56,44 @@ xterm*faceSize6: 24
 ! white
 *.color7:       #acada1
 *.color15:      #cfd0c2
+
+
+!*.foreground:   #E24882 
+!*.background:   #00021c
+!*.cursorColor:  #7846dd
+!
+!
+!! black
+!*.color0:       #4c90d3
+!*.color8:       #3D0A97
+!
+!! red
+!*.color1:       #1d86ce
+!*.color9:       #774495
+!
+!! green
+!*.color2:       #3066b0
+!*.color10:      #5f1a7a
+!
+!! yellow
+!*.color3:       #4778bb
+!*.color11:      #993196
+!
+!! blue
+!*.color4:       #8368c4
+!*.color12:      #e796d3
+!
+!! magenta
+!*.color5:       #c05bb8
+!*.color13:      #873bb0
+!
+!! cyan
+!*.color6:       #6349E0
+!*.color14:      #c9a1e0
+!
+!! white
+!*.color7:       #9193dd
+!*.color15:      #b481ca
 
 
 ! Scroll bar

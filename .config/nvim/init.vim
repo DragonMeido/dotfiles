@@ -22,10 +22,10 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chrisbra/Colorizer'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme molokai 
 
 if executable('rg')
     let g:rg_derive_root='true'
