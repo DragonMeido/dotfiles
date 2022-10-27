@@ -15,8 +15,3 @@ function __fish_winch_handler --on-signal winch
 	commandline -f repaint
 end
 
-# if test (count (ps aux | grep Xorg | grep -v grep)) -eq 1
-#     exit
-# else
-#     exec startx
-# end
