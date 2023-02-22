@@ -1,43 +1,43 @@
 ! for st
 ! bg and fg colour
-st.foreground:   #bea492
-st.background:   #181512
-st.cursorColor:  #daba8b
+st.foreground:   #AB73D9
+st.background:   #1C0D2A
+st.cursorColor:  #D196F7
 
 ! black
-st.color0:       #48483e
-st.color8:       #76715e
+st.color0:       #42423C
+st.color8:       #868278
 
 ! red
-st.color1:       #dc2566
-st.color9:       #fa2772
+st.color1:       #B82E5F
+st.color9:       #FF055D
 
 ! green
-st.color2:       #8fc029
-st.color10:      #a7e22e
+st.color2:       #71981E
+st.color10:      #9DDF14
 
 ! yellow
-st.color3:       #d4c96e
-st.color11:      #e7db75
+st.color3:       #AC9F32
+st.color11:      #F0D912
 
 ! blue
-st.color4:       #55bcce
-st.color12:      #66d9ee
+st.color4:       #4094A3
+st.color12:      #05CEF3
 
 ! magenta
-st.color5:       #9358fe
-st.color13:      #ae82ff
+st.color5:       #643EA9
+st.color13:      #9B69F5
 
 ! cyan
-st.color6:       #56b7a5
-st.color14:      #66efd5
+st.color6:       #56B0A6
+st.color14:      #00FCCC
 
 ! white
-st.color7:       #acada1
-st.color15:      #cfd0c2
+st.color7:       #A2A29D
+st.color15:      #E8E9CF
 
 ! dmenu colors
-dmenu.background: #181512
-dmenu.foreground: #76715e
-dmenu.selbackground: #76715e
-dmenu.selforeground: #181512
+dmenu.background: #1C0D2A
+dmenu.foreground: #AB73D9
+dmenu.selbackground: #AB73D9
+dmenu.selforeground: #1C0D2A

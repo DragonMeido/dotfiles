@@ -10,12 +10,12 @@ set $mod Mod1
 # .Xresources
 
 # Use custom colors for black
-set $text #bea492 
-set $active #332d29
-set $inactive #181512
-set $indicator #55bcce
-set $cbfocused #76715e
-set $cbunfocused #48483e
+set $text #B17DDB 
+set $active #512F6D
+set $inactive #1C0D2A
+set $indicator #1FDEFF
+set $cbfocused #8A5DB3
+set $cbunfocused #542F75
 set $transparent #00000000
 
 # Window color scheme
@@ -27,7 +27,6 @@ client.urgent           #d4c96e        #daba8a         $inactive    $transparent
 client.background       $black
 
 font pango:monospace 10
-#font pango:DejaVu Sans Mono 8
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -45,8 +44,9 @@ bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
 
 #brightnessctl keybindings to control brightness from user space
 #### Screen Brightness ####
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 1000-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight set +1000
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 2000-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight set +2000
+
 #### Keyboard Backlight ####
 bindsym XF86KbdBrightnessDown exec --no-startup-id brightnessctl -d asus::kbd_backlight set 1-
 bindsym XF86KbdBrightnessUp exec --no-startup-id brightnessctl -d asus::kbd_backlight set +1
@@ -55,15 +55,12 @@ bindsym XF86KbdBrightnessUp exec --no-startup-id brightnessctl -d asus::kbd_back
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Lock screen
-#bindsym $mod+Ctrl+l exec slock
 # app launch bindings
 for_window [class="yeet"] floating enable
-#for_window [window_role=myon] floating enable
 bindsym $mod+p exec pavucontrol --class yeet
-bindsym $mod+Return exec st -A 0.95
+bindsym $mod+Return exec st -A 0.85
 bindsym $mod+m exec gnome-system-monitor --class yeet
-bindsym $mod+n exec nautilus --class yeet
+bindsym $mod+n exec caja --class yeet
 bindsym $mod+Ctrl+a exec code
 
 # kill focused window
@@ -72,9 +69,10 @@ bindsym $mod+Shift+q kill
 #  start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
-# flameshot config
+# flameshot and normcap config
 bindsym --release Shift+Print exec flameshot gui
-#bindsym --release Shift+f+Print exec flameshot scn
+bindsym Print exec normcap
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -94,10 +92,11 @@ bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left 
+bindsym $mod+Shift+Down move down 
+bindsym $mod+Shift+Up move up 
+bindsym $mod+Shift+Right move right 
+
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -167,8 +166,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# launches a dmenu script to select power options 
+bindsym $mod+Shift+e exec pmenu
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -204,11 +204,12 @@ gaps inner 2
 # programs to launch
 exec_always --no-startup-id /home/sakuya/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-exec_always --no-startup-id feh --bg-fill ~/bg4.png*
+exec_always --no-startup-id feh --bg-fill ~/ina_wall.jpg*
 exec_always --no-startup-id picom 
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id ibus-daemon -drx
 exec_always --no-startup-id nm-applet
+exec --no-startup-id /usr/libexec/gsd-xsettings
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock --nofork
 exec "synclient TouchpadOff=1"

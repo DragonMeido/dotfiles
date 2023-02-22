@@ -2,12 +2,12 @@
 
 
 [colors]
-foreground = #bea492
-background = #181512
-active = #332d29
+foreground = #D196F7
+background = #1C0D2A
+active = #512F6D
 primary = #daba8b
 secondary = #8fc029
-underline = #817267
+underline = #D196F7
 
 [bar/main]
 #monitor = ${env:MONITOR:eDP-1-1}
