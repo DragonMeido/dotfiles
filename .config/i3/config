@@ -10,23 +10,24 @@ set $mod Mod1
 # .Xresources
 
 # Use custom colors for black
-set $text #B17DDB 
-set $active #512F6D
+#set $text #D9AFFF 
+set $active #D9AFFF
 set $inactive #1C0D2A
 set $indicator #1FDEFF
-set $cbfocused #8A5DB3
+set $cbfocused #BE8DEB
 set $cbunfocused #542F75
 set $transparent #00000000
 
 # Window color scheme
 #                       BORDER          BACKGROUND      TEXT        INDICATOR       CHILD_BORDER
-client.focused          $active         $active         $text       $indicator      $cbfocused
-client.unfocused        $inactive       $inactive       $text       $transparent    $cbunfocused
-client.focused_inactive $active         $active         $text       $transparent    $cbunfocused
-client.urgent           #d4c96e        #daba8a         $inactive    $transparent    #ff3355
+client.focused          $active         $active         $inactive      $indicator      $cbfocused
+client.unfocused        $inactive       $inactive       $active       $transparent    $cbunfocused
+client.focused_inactive $active         $active         $inactive       $transparent    $cbunfocused
+client.urgent           #d4c96e        #daba8a         $inactive    $transparent    #F35896
 client.background       $black
 
-font pango:monospace 10
+# font pango:Source Han Sans JP 11
+font pango:CodeNewRoman Nerd Font Mono 11
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -36,16 +37,20 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #### mpc keybindings ####
+bindsym $mod+comma exec --no-startup-id mpc prev
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym $mod+period exec --no-startup-id mpc next
 bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym Shift+XF86AudioLowerVolume exec --no-startup-id mpc volume -5
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
+bindsym XF86Launch6 exec --no-startup-id mpc toggle
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioStop exec --no-startup-id mpc stop 
 
 #brightnessctl keybindings to control brightness from user space
 #### Screen Brightness ####
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 2000-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight set +2000
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 3000-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight set +3000
 
 #### Keyboard Backlight ####
 bindsym XF86KbdBrightnessDown exec --no-startup-id brightnessctl -d asus::kbd_backlight set 1-
@@ -57,11 +62,14 @@ floating_modifier $mod
 
 # app launch bindings
 for_window [class="yeet"] floating enable
-bindsym $mod+p exec pavucontrol --class yeet
+bindsym $mod+p exec pavucontrol 
 bindsym $mod+Return exec st -A 0.85
 bindsym $mod+m exec gnome-system-monitor --class yeet
-bindsym $mod+n exec caja --class yeet
-bindsym $mod+Ctrl+a exec code
+bindsym $mod+n exec nemo --class yeet 
+bindsym $mod+Ctrl+a exec io.elementary.code --class yeet 
+bindsym $mod+Ctrl+b exec quimup --class yeet
+bindsym $mod+Shift+w exec livewp_toggle
+bindsym $mod+o exec xmodmap /home/sakuya/.Xmodmap
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -76,8 +84,8 @@ bindsym Print exec normcap
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+i focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -88,8 +96,8 @@ bindsym $mod+Right focus right
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+i move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left 
@@ -163,9 +171,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec i3-msg restart && xmodmap /home/sakuya/.Xmodmap
 # launches a dmenu script to select power options 
 bindsym $mod+Shift+e exec pmenu
 
@@ -176,14 +184,24 @@ mode "resize" {
 
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym i resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Shift+j resize shrink width 100 px or 100 ppt
+        bindsym Shift+k resize grow height 100 px or 100 ppt
+        bindsym Shift+i resize shrink height 100 px or 100 ppt
+        bindsym Shift+l resize grow width 100 px or 100 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Shift+Left resize shrink width 100 px or 100 ppt
+        bindsym Shift+Down resize grow height 100 px or 100 ppt
+        bindsym Shift+Up resize shrink height 100 px or 100 ppt
+        bindsym Shift+Right resize grow width 100 px or 100 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -195,7 +213,6 @@ bindsym $mod+r mode "resize"
 
 # border
 for_window [class="^.*"] border pixel 2
-#border_radius 3
 
 # gaps
 gaps outer 0
@@ -204,12 +221,16 @@ gaps inner 2
 # programs to launch
 exec_always --no-startup-id /home/sakuya/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec_always --no-startup-id /usr/lib/xdg-desktop-portal-gtk
+exec_always --no-startup-id /usr/lib/kdeconnectd
 exec_always --no-startup-id feh --bg-fill ~/ina_wall.jpg*
+exec_always --no-startup-id dunst 
 exec_always --no-startup-id picom 
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id kdeconnect-indicator
-exec_always --no-startup-id ibus-daemon -drx
 exec_always --no-startup-id nm-applet
+exec_always --no-startup-id fcitx5 -d
+exec --no-startup-id mpd-discord-rpc
 exec --no-startup-id /usr/libexec/gsd-xsettings
-exec --no-startup-id xss-lock --transfer-sleep-lock -- slock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- xlock --nofork
 exec "synclient TouchpadOff=1"

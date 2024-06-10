@@ -1,0 +1,4 @@
+#! /bin/sh
+
+STATUS=$(mpc status | head -n1)
+notify-send "$STATUS"

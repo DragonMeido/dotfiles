@@ -1,6 +1,6 @@
 ! for st
 ! bg and fg colour
-st.foreground:   #AB73D9
+st.foreground:   #f4baff
 st.background:   #1C0D2A
 st.cursorColor:  #D196F7
 
@@ -41,3 +41,7 @@ dmenu.background: #1C0D2A
 dmenu.foreground: #AB73D9
 dmenu.selbackground: #AB73D9
 dmenu.selforeground: #1C0D2A
+
+! cursor theme
+Xcursor.theme: fauna 
+
